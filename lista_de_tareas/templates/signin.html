@@ -1,12 +1,19 @@
-{% extends 'base.html' %}
-{% block content %}
-<form action="/signin/" method="POST">
-    {% csrf_token %} 
-    {{form.as_p}}
-    <button>
-        signin
-    </button>
+{% extends 'base.html' %} {% block content %}
+
+{% block head-extra %}
+{# <link href="/static/styles/styles.css"> #}
+{% endblock %}
+
+<form action="/signin/" method="post" class="form">
+    <h1 class="title text-center">Let the game begin Singin! </h1>
+{% csrf_token %}
+  <label for="username" class="label">Name:</label>
+  <input type="text" class="infos" id="username" name="username" />
+  <div class="mario"></div>
+  <label for="password" class="label">Password:</label>
+  <input type="password" id="password" name="password" class="password" />
+  <button class="button">Signin</button>
+  <button type="reset" id="limpar" class="button">Clear</button>
 </form>
 
 {% endblock %}
-

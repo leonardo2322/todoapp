@@ -1,5 +1,32 @@
+{% extends 'base.html' %} {% block content %}
+<main class="container">
+  <div class="row">
+    <div class="col-lg-6 offset-md-3">
+      <h1 class="text-center display-3 mt-4 me-5">tasks Pendings</h1>
+      <ul class="list-group me-5 ">
+        {% for task in todo_Tasks %}
 
-{% extends 'base.html' %}
-{% block content %}
-<h1>tasks</h1>
+        <a href="{% url 'taskdetail' task.id %}" class="me-5 mt-2">
+          <li class="list-group-item bg-dark text-light rounded">
+            <header class="d-flex justify-content-between text-center">
+              <h1 class="px-4 fw-bold">{{task.title }}</h1>
+              <h3 class="me-3 px-3">by: {{task.user.username}}</h3>
+            </header>
+            <p class="me-3 px-3">{{task.description}}</p>
+            <p>
+              {% if task.important %} <h5 class="text-success">
+                Task Important 
+              </h5>{% else %} <h5 class="text-warning">
+                Task Dont
+                important
+              </h5> {% endif %}
+            </p>
+            <h5 class="me-3 px-3">{{task.dateCompleted|date:'M j Y:i'}}</h5>
+          </li>
+        </a>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</main>
 {% endblock %}
