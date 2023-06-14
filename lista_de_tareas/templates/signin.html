@@ -3,7 +3,7 @@
 {% block head-extra %}
 {# <link href="/static/styles/styles.css"> #}
 {% endblock %}
-
+<h1 class="text-center display-3 mt-4 me-5 text-danger">{{error}}</h1>
 <form action="/signin/" method="post" class="form">
     <h1 class="title text-center">Let the game begin Singin! </h1>
 {% csrf_token %}
